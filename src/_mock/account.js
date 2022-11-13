@@ -1,8 +1,8 @@
 // ----------------------------------------------------------------------
 
 const account = {
-  displayName: 'Jaydon Frankie',
-  email: 'demo@minimals.cc',
+  displayName: 'Shiyan Boxer',
+  email: 'shiyan.boxer@queensu.ca',
   photoURL: '/assets/images/avatars/avatar_default.jpg',
 };
 
