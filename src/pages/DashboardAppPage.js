@@ -38,7 +38,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Minimal UI </title>
+        <title> Recovery Tracker </title>
       </Helmet>
 
       <Container maxWidth="xl">
@@ -69,19 +69,19 @@ export default function DashboardAppPage() {
               ]}
               chartData={[
                 {
-                  name: 'Team A',
+                  name: 'Heart Rate',
                   type: 'column',
                   fill: 'solid',
                   data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
                 },
                 {
-                  name: 'Team B',
+                  name: 'Heart Rate Variability',
                   type: 'area',
                   fill: 'gradient',
                   data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
                 },
                 {
-                  name: 'Team C',
+                  name: 'Recovery',
                   type: 'line',
                   fill: 'solid',
                   data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
@@ -131,9 +131,15 @@ export default function DashboardAppPage() {
             <AppNewsUpdate
               title="Recommendations"
               list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: faker.name.jobTitle(),
-                description: faker.name.jobTitle(),
+                // id: faker.datatype.uuid(),
+                // title: faker.name.jobTitle(),
+                // description: faker.name.jobTitle(),
+                // image: `/assets/images/covers/cover_${index + 1}.jpg`,
+                // postedAt: faker.date.recent(),
+                
+                id: [1, 2],
+                title: ['Workout Less'],
+                description: ['Workout Less'],
                 image: `/assets/images/covers/cover_${index + 1}.jpg`,
                 postedAt: faker.date.recent(),
               }))}
@@ -143,7 +149,7 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
               title="Workout Breakdown"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
+              chartLabels={['Endurance', 'Interval', 'Threshold', 'Hill']}
               chartData={[
                 { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
                 { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
