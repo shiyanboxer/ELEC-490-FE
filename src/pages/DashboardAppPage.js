@@ -3,8 +3,8 @@ import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
-// components
-import Iconify from '../components/iconify';
+// form hook - https://react-hook-form.com/get-started
+import { useForm } from "react-hook-form";
 // sections
 import {
   AppTasks,
@@ -16,7 +16,8 @@ import {
   AppWidgetSummary,
   AppCurrentSubject,
   AppConversionRates,
-  CardData
+  CardData,
+  FormDialog
 } from '../sections/@dashboard/app';
 
 // ----------------------------------------------------------------------
@@ -45,6 +46,13 @@ export default function DashboardAppPage() {
         <Typography variant="h4" sx={{ mb: 5 }}>
           Welcome back, Shiyan
         </Typography>
+        
+        <Grid item xs={12} md={12} lg={12}>
+          <Typography variant="subtitle1">
+                Enter your HRV value to view your updated recovery score and recommendations
+            </Typography>
+          <FormDialog/>
+        </Grid>
 
         <Grid container spacing={3}>          
           {/* Render Card data */}
