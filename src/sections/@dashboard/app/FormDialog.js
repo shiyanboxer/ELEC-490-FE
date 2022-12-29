@@ -26,14 +26,13 @@ export default function FormDialog() {
   // https://www.techomoro.com/submit-a-form-data-to-rest-api-in-a-react-app/
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("HWERWER")
     console.log(e)
     try {
       
       // console.log("HERVA value")
       console.log(hrv)
 
-      const response = await fetch("https://httpbin.org/post", {
+      const response = await fetch("http://127.0.0.1:5000/predict", {
         method: "POST",
         body: JSON.stringify({
           hrv,
@@ -41,9 +40,6 @@ export default function FormDialog() {
       });
       const responseJSON = await response.json();
       if (response.status === 200) {
-        console.log("Successful")
-
-        // console.log("Successful")
         console.log(response.data)
 
         setHrv("");

@@ -14,7 +14,9 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClick = () => {
-    navigate('/dashboard', { replace: true });
+    // navigate('/dashboard', { replace: true });
+    const url ='http://127.0.0.1:5000/';
+    window.location.href = url;
   };
 
   return (
