@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {useState} from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Typography } from '@mui/material';
+import { Typography, TextField } from '@mui/material';
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -29,7 +29,11 @@ export default function FormDialog() {
     console.log("HWERWER")
     console.log(e)
     try {
-      const response = await fetch("https://dummyendpoint", {
+      
+      // console.log("HERVA value")
+      console.log(hrv)
+
+      const response = await fetch("https://httpbin.org/post", {
         method: "POST",
         body: JSON.stringify({
           hrv,
@@ -38,6 +42,10 @@ export default function FormDialog() {
       const responseJSON = await response.json();
       if (response.status === 200) {
         console.log("Successful")
+
+        // console.log("Successful")
+        console.log(response.data)
+
         setHrv("");
         setMessage("HRV value successfully submitted");
         setOpen(false);
@@ -65,11 +73,13 @@ export default function FormDialog() {
             autoFocus
             fullWidth
             margin="dense"
-            id="name"
+            id="hrv_value"
             label="Heart Rate Variability Value"
             variant="standard"
             type="number"
-            required="true"
+            required='true'
+            // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes
+            inputProps={{ max: 300, min: 10, pattern: '[0-9]'}}
             onChange={(e) => setHrv(e.target.value)}
           />
         </DialogContent>
