@@ -28,11 +28,8 @@ export default function FormDialog() {
     e.preventDefault();
     console.log(e)
     try {
-      
-      // console.log("HERVA value")
-      console.log(hrv)
-
-      const response = await fetch("http://127.0.0.1:5000/predict", {
+      // const response = await fetch("http://127.0.0.1:5000/predict", {
+      const response = await fetch("https://elec49x.herokuapp.com/predict", {
         method: "POST",
         body: JSON.stringify({
           hrv,
