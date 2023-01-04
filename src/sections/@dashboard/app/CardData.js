@@ -8,10 +8,13 @@ const CardData = () => {
     // {"heartrate_response": 0, "activity_response": [], "weekly_training_time_response": 0, "hrv": 34, "recovery_score": 23}
 
     // eslint-disable-next-line dot-notation
-    const recoveryScore = 81;
-    const hrv = 81;
-    const weeklyTraining = 23;
-    const heartRate = 81;
+    const recoveryScore = hrvResponse ? hrvResponse['recovery_score'] : 67;
+    // eslint-disable-next-line dot-notation
+    const hrv = hrvResponse ? hrvResponse['hrv'] : 58;
+    // eslint-disable-next-line dot-notation
+    const weeklyTraining = hrvResponse ? hrvResponse['weekly_training_time_response'] : 17;
+    // eslint-disable-next-line dot-notation
+    const heartRate = hrvResponse ? hrvResponse['heartrate_response'] : 81;
     
     const cardData = [
         {
