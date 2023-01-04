@@ -66,25 +66,20 @@ export default function DashboardAppPage() {
               title="Recovery Score"
               subheader="(+43%) than last year"
               chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
+                'Nov 10',
+                'Nov 14',
+                'Nov 28',
+                'Dec 1',
+                'Dec 7',
+                'Dec 14',
+                'Dec 28',
+                'Jan 1',
+                'Jan 20',
+                'Jan 31',
+                'Feb 1',
               ]}
               chartData={[
-                {
-                  name: 'Heart Rate',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
-                },
+
                 {
                   name: 'Heart Rate Variability',
                   type: 'area',
@@ -97,6 +92,12 @@ export default function DashboardAppPage() {
                   fill: 'solid',
                   data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
                 },
+                // {
+                //   name: 'Heart Rate',
+                //   type: 'column',
+                //   fill: 'solid',
+                //   data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+                // },
               ]}
             />
           </Grid>
