@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import Button from '@mui/material/Button';
 // import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -8,8 +8,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Typography, TextField } from '@mui/material';
+// import { ResponseContext } from 'src/components/response';
 
 export default function FormDialog() {
+  // const { hrvResponse } = useContext(ResponseContext);
+  // console.log(hrvResponse);
+
   const [open, setOpen] = React.useState(false);
   const [hrv, setHrv] = useState("");
   const [message, setMessage] = useState("");
@@ -28,8 +32,8 @@ export default function FormDialog() {
     e.preventDefault();
     console.log(e)
     try {
-      // const response = await fetch("http://127.0.0.1:5000/predict", {
-      const response = await fetch("https://elec49x.herokuapp.com/predict", {
+      const response = await fetch("http://127.0.0.1:5000/predict", {
+      // const response = await fetch("https://elec49x.herokuapp.com/predict", {
         method: "POST",
         body: JSON.stringify({
           hrv,
@@ -38,7 +42,7 @@ export default function FormDialog() {
       const responseJSON = await response.json();
       if (response.status === 200) {
         console.log(response.data)
-
+        // Reset HRV value, add success message, close prompt
         setHrv("");
         setMessage("HRV value successfully submitted");
         setOpen(false);
