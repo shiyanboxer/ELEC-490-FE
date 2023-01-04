@@ -3,9 +3,6 @@ import ResponseContext from '../../../components/response/ResponseContext'
 
 const CardData = () => {
     const { hrvResponse } = useContext(ResponseContext);
-    // console.log('HRV RESPONSE FROMN CARD DATA');
-    // console.log(hrvResponse);
-    // {"heartrate_response": 0, "activity_response": [], "weekly_training_time_response": 0, "hrv": 34, "recovery_score": 23}
 
     // eslint-disable-next-line dot-notation
     const recoveryScore = hrvResponse ? hrvResponse['recovery_score'] : 67;
@@ -15,6 +12,9 @@ const CardData = () => {
     const weeklyTraining = hrvResponse ? hrvResponse['weekly_training_time_response'] : 17;
     // eslint-disable-next-line dot-notation
     const heartRate = hrvResponse ? hrvResponse['heartrate_response'] : 81;
+    
+    console.log('heartRate');
+    console.log(heartRate);
     
     const cardData = [
         {
@@ -46,31 +46,3 @@ const CardData = () => {
 };
 
 export default CardData;
-
-
-// export default [
-//     {
-//         title:'Recovery Score',
-//         total: 81,
-//         // color: 'info',
-//         icon:'material-symbols:health-and-safety',
-//     },
-//     {
-//         title:'Average Heart Rate Variability (ms)',
-//         total: 828,
-//         color: 'info',
-//         icon: 'uil:heart-rate',
-//     },
-//     {
-//         title: 'Weekly Training (Hours)',
-//         total: 23,
-//         color: 'warning',
-//         icon: 'ic:outline-directions-bike',
-//     },
-//     {
-//         title: 'Heart Rate (BPM)',
-//         total: 120,
-//         color: 'error',
-//         icon: 'ant-design:heart-filled'
-//     }
-// ]

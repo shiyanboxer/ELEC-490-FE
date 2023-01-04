@@ -12,8 +12,6 @@ import ResponseContext from '../../../components/response/ResponseContext'
 
 export default function FormDialog() {
   const { hrvResponse, setHrvResponse } = useContext(ResponseContext);
-  console.log('HRV DATA PRINT');
-  console.log(hrvResponse);
 
   const [open, setOpen] = React.useState(false);
   const [hrv, setHrv] = useState("");
@@ -40,14 +38,15 @@ export default function FormDialog() {
           hrv,
         }),
       });
-      const responseJSON = await response.json();
+      const stringResponse = await response.json();
+      const responseJSON = await JSON.parse(stringResponse);
       if (response.status === 200) {
-        
         setHrvResponse(responseJSON);
 
         // Reset HRV value, add success message, close prompt
         setHrv("");
         setMessage("HRV value successfully submitted");
+
         setOpen(false);
       } else {
         setMessage("An error occured");
