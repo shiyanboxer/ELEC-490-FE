@@ -8,11 +8,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Typography, TextField } from '@mui/material';
-// import { ResponseContext } from 'src/components/response';
+import ResponseContext from '../../../components/response/ResponseContext'
 
 export default function FormDialog() {
-  // const { hrvResponse } = useContext(ResponseContext);
-  // console.log(hrvResponse);
+  const { hrvResponse } = useContext(ResponseContext);
+  console.log('SHIYA  BOXER');
+  console.log(hrvResponse);
 
   const [open, setOpen] = React.useState(false);
   const [hrv, setHrv] = useState("");
