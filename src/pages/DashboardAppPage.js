@@ -27,6 +27,55 @@ import ResponseContext from '../components/response/ResponseContext'
 export default function DashboardAppPage() {
   const theme = useTheme();
   const data = CardData();
+  const { hrvResponse } = useContext(ResponseContext);
+  // eslint-disable-next-line dot-notation
+  const hrv = hrvResponse ? hrvResponse['hrv'] : 58;
+  // eslint-disable-next-line dot-notation
+  const recoveryScore = hrvResponse ? hrvResponse['recovery_score'] : 67;
+  const recoveryScoreDates = [
+    'Nov 10',
+    'Nov 14',
+    'Nov 28',
+    'Dec 1',
+    'Dec 7',
+    'Dec 14',
+    'Dec 28',
+    'Jan 1',
+    'Jan 20',
+    'Jan 31',
+  ]
+  const recoveryScoreData = [
+    {
+      name: 'Heart Rate Variability',
+      type: 'area',
+      fill: 'gradient',
+      data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27],
+    },
+    {
+      name: 'Recovery',
+      type: 'line',
+      fill: 'solid',
+      data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36],
+    },
+  ]
+  
+
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+  const today = new Date();
+  const date = today.getDate(); 
+  const month = today.getMonth();
+  const dateWithFullMonthName = monthNames[month];
+  // eslint-disable-next-line prefer-template
+  const fullDate = dateWithFullMonthName + ' ' + date;
+
+  if (hrvResponse) {
+    recoveryScoreDates.push(fullDate);
+    recoveryScoreData[0].data.push(hrv)
+    recoveryScoreData[1].data.push(recoveryScore)
+    console.log(recoveryScoreDates);
+    console.log(recoveryScoreData);
+  }
+
   const RenderCardData = data.map(props => {
     return (
         <Grid item xs={12} sm={6} md={3}>
@@ -65,40 +114,8 @@ export default function DashboardAppPage() {
             <AppWebsiteVisits
               title="Recovery Score"
               subheader="(+43%) than last year"
-              chartLabels={[
-                'Nov 10',
-                'Nov 14',
-                'Nov 28',
-                'Dec 1',
-                'Dec 7',
-                'Dec 14',
-                'Dec 28',
-                'Jan 1',
-                'Jan 20',
-                'Jan 31',
-                'Feb 1',
-              ]}
-              chartData={[
-
-                {
-                  name: 'Heart Rate Variability',
-                  type: 'area',
-                  fill: 'gradient',
-                  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
-                },
-                {
-                  name: 'Recovery',
-                  type: 'line',
-                  fill: 'solid',
-                  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
-                },
-                // {
-                //   name: 'Heart Rate',
-                //   type: 'column',
-                //   fill: 'solid',
-                //   data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
-                // },
-              ]}
+              chartLabels={recoveryScoreDates}
+              chartData={recoveryScoreData}
             />
           </Grid>
 
