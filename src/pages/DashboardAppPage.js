@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
 // @mui
@@ -19,12 +20,14 @@ import {
   CardData,
   FormDialog
 } from '../sections/@dashboard/app';
+import ResponseContext from '../components/response/ResponseContext'
 
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
   const theme = useTheme();
-  const RenderCardData = CardData.map(props => {
+  const data = CardData();
+  const RenderCardData = data.map(props => {
     return (
         <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary 

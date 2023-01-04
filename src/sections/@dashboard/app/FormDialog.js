@@ -11,8 +11,8 @@ import { Typography, TextField } from '@mui/material';
 import ResponseContext from '../../../components/response/ResponseContext'
 
 export default function FormDialog() {
-  const { hrvResponse } = useContext(ResponseContext);
-  console.log('SHIYA  BOXER');
+  const { hrvResponse, setHrvResponse } = useContext(ResponseContext);
+  console.log('HRV DATA PRINT');
   console.log(hrvResponse);
 
   const [open, setOpen] = React.useState(false);
@@ -42,7 +42,9 @@ export default function FormDialog() {
       });
       const responseJSON = await response.json();
       if (response.status === 200) {
-        console.log(response.data)
+        
+        setHrvResponse(responseJSON);
+
         // Reset HRV value, add success message, close prompt
         setHrv("");
         setMessage("HRV value successfully submitted");

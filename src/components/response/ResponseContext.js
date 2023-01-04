@@ -9,7 +9,7 @@ export function ResponseProvider({children}) {
     const [hrvResponse, setHrvResponse] = useState();
 
     return (
-        <ResponseContext.Provider value={{hrvResponse}}>{children}</ResponseContext.Provider>
+        <ResponseContext.Provider value={{hrvResponse, setHrvResponse}}>{children}</ResponseContext.Provider>
     );
 }
 
