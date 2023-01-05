@@ -68,12 +68,19 @@ export default function DashboardAppPage() {
 
   // TODO: get recommendation value from response, push to array, create array of Dates() with correct data and render in recommendation form
   const recommendationData = ['Workout less', 'Workout more', 'Need to add better recs'];
+  const recommendationDate = [
+    // new Date(2022, 10, 10), new Date(2022, 10, 14), new Date(2022, 10, 28), 
+    // new Date(2022, 11, 1), new Date(2022, 11, 7), new Date(2022, 11, 14), new Date(2022, 11, 28), 
+    new Date(2023, 0, 1), new Date(2023, 0, 20), new Date(2023, 0, 31)]
+
+  console.log(recommendationDate)
 
   if (hrvResponse) {
     recoveryScoreDates.push(fullDate);
     recoveryScoreData[0].data.push(hrv)
     recoveryScoreData[1].data.push(recoveryScore)
     // recommendationData.push(recoveryScore)
+    // recommendationDate.push(today)
   }
 
   const RenderCardData = data.map(props => {
@@ -123,11 +130,11 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
               title="Recommendations"
-              list={recommendationData.map((recommendation, index) => ({
-                id: faker.datatype.uuid(),
-                title: recommendation,
+              list={recommendationDate.map((recommendation, index) => ({
+                // id: faker.datatype.uuid(),
+                title: ['recommendation'],
                 image: `/assets/images/covers/cover_${index + 1}.jpg`,
-                postedAt: faker.date.recent(100),
+                postedAt: recommendation,
               }))}
             />
           </Grid>
