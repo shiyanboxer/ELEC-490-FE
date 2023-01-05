@@ -66,10 +66,14 @@ export default function DashboardAppPage() {
   // eslint-disable-next-line prefer-template
   const fullDate = dateWithFullMonthName + ' ' + date;
 
+  // TODO: get recommendation value from response, push to array, create array of Dates() with correct data and render in recommendation form
+  const recommendationData = ['Workout less', 'Workout more', 'Need to add better recs'];
+
   if (hrvResponse) {
     recoveryScoreDates.push(fullDate);
     recoveryScoreData[0].data.push(hrv)
     recoveryScoreData[1].data.push(recoveryScore)
+    // recommendationData.push(recoveryScore)
   }
 
   const RenderCardData = data.map(props => {
@@ -84,8 +88,6 @@ export default function DashboardAppPage() {
         </Grid>
     )
 })
-
-  const recommendationData = ['Workout less', 'Workout more', 'Need to add better recs'];
 
   return (
     <>
@@ -125,7 +127,7 @@ export default function DashboardAppPage() {
                 id: faker.datatype.uuid(),
                 title: recommendation,
                 image: `/assets/images/covers/cover_${index + 1}.jpg`,
-                postedAt: faker.date.recent(),
+                postedAt: faker.date.recent(100),
               }))}
             />
           </Grid>
