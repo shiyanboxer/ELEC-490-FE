@@ -58,8 +58,6 @@ export default function DashboardAppPage() {
       data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36],
     },
   ]
-  
-
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
   const today = new Date();
   const date = today.getDate(); 
@@ -72,8 +70,6 @@ export default function DashboardAppPage() {
     recoveryScoreDates.push(fullDate);
     recoveryScoreData[0].data.push(hrv)
     recoveryScoreData[1].data.push(recoveryScore)
-    console.log(recoveryScoreDates);
-    console.log(recoveryScoreData);
   }
 
   const RenderCardData = data.map(props => {
@@ -88,6 +84,9 @@ export default function DashboardAppPage() {
         </Grid>
     )
 })
+
+  const recommendationData = ['Workout less', 'Workout more', 'Need to add better recs'];
+
   return (
     <>
       <Helmet>
@@ -122,16 +121,9 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
               title="Recommendations"
-              list={[...Array(5)].map((_, index) => ({
-                // id: faker.datatype.uuid(),
-                // title: faker.name.jobTitle(),
-                // description: faker.name.jobTitle(),
-                // image: `/assets/images/covers/cover_${index + 1}.jpg`,
-                // postedAt: faker.date.recent(),
-                
-                id: [1, 2],
-                title: ['Workout Less'],
-                description: ['Workout Less'],
+              list={recommendationData.map((recommendation, index) => ({
+                id: faker.datatype.uuid(),
+                title: recommendation,
                 image: `/assets/images/covers/cover_${index + 1}.jpg`,
                 postedAt: faker.date.recent(),
               }))}

@@ -13,9 +13,6 @@ const CardData = () => {
     // eslint-disable-next-line dot-notation
     const heartRate = hrvResponse ? hrvResponse['heartrate_response'] : 81;
     
-    console.log('heartRate');
-    console.log(heartRate);
-    
     const cardData = [
         {
             title:'Recovery Score',
