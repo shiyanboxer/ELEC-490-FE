@@ -15,8 +15,8 @@ export default function LoginForm() {
 
   const handleClick = () => {
     // navigate('/dashboard', { replace: true });
-    const url = 'http://127.0.0.1:5000';
-    // const url = 'https://elec49x.herokuapp.com/';
+    // const url = 'http://127.0.0.1:5000';
+    const url = 'https://elec49x.herokuapp.com/';
     window.location.href = url;
   };
 

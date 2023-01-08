@@ -121,7 +121,7 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={12} lg={12}>
             <AppWebsiteVisits
               title="Recovery Score"
-              subheader="(+43%) than last year"
+              // subheader="(+43%) than last year"
               chartLabels={recoveryScoreDates}
               chartData={recoveryScoreData}
             />

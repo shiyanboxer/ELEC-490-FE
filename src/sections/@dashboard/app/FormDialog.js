@@ -31,8 +31,8 @@ export default function FormDialog() {
     e.preventDefault();
     console.log(e)
     try {
-      const response = await fetch("http://127.0.0.1:5000/predict", {
-      // const response = await fetch("https://elec49x.herokuapp.com/predict", {
+      // const response = await fetch("http://127.0.0.1:5000/predict", {
+      const response = await fetch("https://elec49x.herokuapp.com/predict", {
         method: "POST",
         body: JSON.stringify({
           hrv,
@@ -76,7 +76,7 @@ export default function FormDialog() {
             label="Heart Rate Variability Value"
             variant="standard"
             type="number"
-            required='true'
+            required
             // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes
             inputProps={{ max: 300, min: 10, pattern: '[0-9]'}}
             onChange={(e) => setHrv(e.target.value)}
