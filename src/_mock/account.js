@@ -17,13 +17,14 @@ const Account = () => {
         console.log(error);
       });
   }, []); // the empty array is to make sure the request only runs on page load
+
     // eslint-disable-next-line dot-notation
     const firstName = userResponse['first_name'];
     // eslint-disable-next-line dot-notation
     const lastName = userResponse['last_name'];
     const accountData = {
       displayName: `${firstName} ${lastName}`,
-      email: `${firstName.toLowerCase()}${lastName}@gmail.com`,
+      email: `${firstName}${lastName}@gmail.com`,
       photoURL: '/assets/images/avatars/avatar_default.jpg',
     };
     return accountData;
