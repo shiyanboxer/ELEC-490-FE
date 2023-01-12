@@ -25,7 +25,7 @@ const Account = () => {
     const accountData = {
       firstName: `${firstName}`,
       displayName: `${firstName} ${lastName}`,
-      email: `${firstName}${lastName}@gmail.com`,
+      email: `${firstName}${lastName}@gmail.com`.toLowerCase(),
       photoURL: '/assets/images/avatars/avatar_default.jpg',
     };
     return accountData;
