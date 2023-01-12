@@ -23,6 +23,7 @@ const Account = () => {
     // eslint-disable-next-line dot-notation
     const lastName = userResponse['last_name'];
     const accountData = {
+      firstName: `${firstName}`,
       displayName: `${firstName} ${lastName}`,
       email: `${firstName}${lastName}@gmail.com`,
       photoURL: '/assets/images/avatars/avatar_default.jpg',

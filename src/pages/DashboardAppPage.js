@@ -20,6 +20,7 @@ import {
   CardData,
   FormDialog
 } from '../sections/@dashboard/app';
+import Account from '../_mock/account';
 import ResponseContext from '../components/response/ResponseContext'
 import UserContext from '../components/response/UserContext'
 
@@ -28,26 +29,8 @@ import UserContext from '../components/response/UserContext'
 export default function DashboardAppPage() {
   const theme = useTheme();
   const data = CardData();
+  const account = Account();
   const { hrvResponse } = useContext(ResponseContext);
-  const [userResponse, setUserResponse] = useState({});
-  
-  useEffect(() => {
-    // fetch('http://127.0.0.1:5000/user')
-    fetch('https://elec49x.herokuapp.com/user')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        setUserResponse(data)
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []); // the empty array is to make sure the request only runs on page load
-  
-  // eslint-disable-next-line dot-notation
-  const firstName = userResponse['first_name'];
-  // eslint-disable-next-line dot-notation
-  const lastName = userResponse['last_name'];
 
   // eslint-disable-next-line dot-notation
   const hrv = hrvResponse ? hrvResponse['hrv'] : 58;
@@ -95,6 +78,8 @@ export default function DashboardAppPage() {
     new Date(2023, 0, 1), new Date(2023, 0, 20), new Date(2023, 0, 31)]
 
   console.log(recommendationDate)
+  console.log("HERERERERE")
+  console.log(account)
 
   if (hrvResponse) {
     recoveryScoreDates.push(fullDate);
@@ -125,7 +110,7 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Welcome back, {firstName}
+          Welcome back, {account.firstName}
         </Typography>
         
         <Grid item xs={12} md={12} lg={12}>
