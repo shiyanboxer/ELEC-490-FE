@@ -91,7 +91,7 @@ export default function Nav({ openNav, onCloseNav }) {
               Learn more about how the Recovery Tracker works
             </Typography>
           </Box>
-          <Button href="https://material-ui.com/store/items/minimal-dashboard/" target="_blank" variant="contained">
+          <Button href="https://elec49x.netlify.app/dashboard/documentation" target="_blank" variant="contained">
             View Documentation
           </Button>
         </Stack>
