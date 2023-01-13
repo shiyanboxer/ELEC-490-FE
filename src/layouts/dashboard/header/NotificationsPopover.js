@@ -54,7 +54,7 @@ const NOTIFICATIONS = [
     avatar: null,
     type: 'chat_message',
     createdAt: sub(new Date(), { days: 1, hours: 3, minutes: 30 }),
-    isUnRead: true,
+    isUnRead: false,
   },
   // {
   //   id: faker.datatype.uuid(),
