@@ -79,29 +79,23 @@ export default function Nav({ openNav, onCloseNav }) {
 
       <Box sx={{ flexGrow: 1 }} />
 
-      {/* <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
+      <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
         <Stack alignItems="center" spacing={3} sx={{ pt: 5, borderRadius: 2, position: 'relative' }}>
-          <Box
+          {/* <Box
             component="img"
             src="/assets/illustrations/illustration_avatar.png"
             sx={{ width: 100, position: 'absolute', top: -50 }}
-          />
-
+          /> */}
           <Box sx={{ textAlign: 'center' }}>
-            <Typography gutterBottom variant="h6">
-              Get more?
-            </Typography>
-
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              From only $69
+            <Typography gutterBottom variant="body1">
+              Learn more about how the Recovery Tracker works
             </Typography>
           </Box>
-
           <Button href="https://material-ui.com/store/items/minimal-dashboard/" target="_blank" variant="contained">
-            Upgrade to Pro
+            View Documentation
           </Button>
         </Stack>
-      </Box> */}
+      </Box>
     </Scrollbar>
   );
 
