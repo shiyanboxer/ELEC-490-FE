@@ -10,10 +10,12 @@ import Page404 from './pages/Page404';
 import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import DocumentationPage from './pages/DocumentationPage';
-
+import Account from './_mock/account';
 // ----------------------------------------------------------------------
 
 export default function Router() {
+  const account = Account();
+
   const routes = useRoutes([
     {
       path: '/dashboard',
