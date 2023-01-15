@@ -110,7 +110,7 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Welcome back, {account.firstName}
+          Welcome, {account.firstName}
         </Typography>
         
         <Grid item xs={12} md={12} lg={12}>
