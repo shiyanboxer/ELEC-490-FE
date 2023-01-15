@@ -9,7 +9,7 @@ const CardData = () => {
     // eslint-disable-next-line dot-notation
     const hrv = hrvResponse ? hrvResponse['hrv'] : 58;
     // eslint-disable-next-line dot-notation
-    const weeklyTraining = hrvResponse ? hrvResponse['weekly_training_time_response'] : 17;
+    const weeklyTraining = hrvResponse ? hrvResponse['weekly_training_time_response'] : 9;
     // eslint-disable-next-line dot-notation
     const heartRate = hrvResponse ? hrvResponse['heartrate_response'] : 81;
     

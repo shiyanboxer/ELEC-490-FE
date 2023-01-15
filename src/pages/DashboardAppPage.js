@@ -56,7 +56,7 @@ export default function DashboardAppPage() {
       data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27],
     },
     {
-      name: 'Recovery',
+      name: 'Recovery Score',
       type: 'line',
       fill: 'solid',
       data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36],
