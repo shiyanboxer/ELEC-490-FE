@@ -10,8 +10,9 @@ const Account = () => {
     fetch('https://elec49x.herokuapp.com/user')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setUserResponse(data)
+        console.log('IS THIS WORKING');
+        console.log(userResponse);
       })
       .catch(error => {
         console.log(error);

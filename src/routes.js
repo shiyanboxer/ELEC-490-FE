@@ -14,7 +14,6 @@ import Account from './_mock/account';
 // ----------------------------------------------------------------------
 
 export default function Router() {
-  const account = Account();
 
   const routes = useRoutes([
     {

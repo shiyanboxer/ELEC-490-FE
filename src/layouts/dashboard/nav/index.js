@@ -36,6 +36,8 @@ Nav.propTypes = {
 
 export default function Nav({ openNav, onCloseNav }) {
   const account = Account();
+  console.log('IN NAV');
+  console.log(account);
   const { pathname } = useLocation();
   const isDesktop = useResponsive('up', 'lg');
 

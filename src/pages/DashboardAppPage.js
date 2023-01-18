@@ -30,6 +30,10 @@ export default function DashboardAppPage() {
   const theme = useTheme();
   const data = CardData();
   const account = Account();
+
+  console.log('IN DASHBOARD');
+  console.log(account);
+
   const { hrvResponse } = useContext(ResponseContext);
 
   // eslint-disable-next-line dot-notation
@@ -76,10 +80,6 @@ export default function DashboardAppPage() {
     // new Date(2022, 10, 10), new Date(2022, 10, 14), new Date(2022, 10, 28), 
     // new Date(2022, 11, 1), new Date(2022, 11, 7), new Date(2022, 11, 14), new Date(2022, 11, 28), 
     new Date(2023, 0, 1), new Date(2023, 0, 20), new Date(2023, 0, 31)]
-
-  console.log(recommendationDate)
-  console.log("HERERERERE")
-  console.log(account)
 
   if (hrvResponse) {
     recoveryScoreDates.push(fullDate);
