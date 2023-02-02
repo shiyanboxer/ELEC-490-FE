@@ -22,12 +22,16 @@ const Account = () => {
     // eslint-disable-next-line dot-notation
     const firstName = userResponse['first_name'];
     // eslint-disable-next-line dot-notation
-    const lastName = userResponse['last_name'];
+    const lastName = userResponse['last_name'];   
     const accountData = {
       firstName: `${firstName}`,
       displayName: `${firstName} ${lastName}`,
       email: `${firstName}${lastName}@gmail.com`.toLowerCase(),
       photoURL: '/assets/images/avatars/avatar_default.jpg',
+      // eslint-disable-next-line dot-notation
+      recommendation: userResponse['recovery'],
+      // eslint-disable-next-line dot-notation
+      recovery: userResponse['recovery'],
     };
     return accountData;
 }
