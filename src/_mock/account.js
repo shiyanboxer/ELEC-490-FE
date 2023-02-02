@@ -21,7 +21,7 @@ const Account = () => {
     // eslint-disable-next-line dot-notation
     const firstName = userResponse['first_name'];
     // eslint-disable-next-line dot-notation
-    const lastName = userResponse['last_name'];   
+    const lastName = userResponse['last_name'];
 
     const accountData = {
       firstName: `${firstName}`,
@@ -32,6 +32,10 @@ const Account = () => {
       recommendation: userResponse['recommendation'],
       // eslint-disable-next-line dot-notation
       recovery: userResponse['recovery'],
+      // eslint-disable-next-line dot-notation
+      heart_rate: userResponse['heart_rate'],
+      // eslint-disable-next-line dot-notation
+      weekly_training: userResponse['weekly_training'],
     };
     return accountData;
 }
