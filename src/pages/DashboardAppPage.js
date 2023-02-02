@@ -105,7 +105,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Recovery Tracker </title>
+        <title> BONK </title>
       </Helmet>
 
       <Container maxWidth="xl">

@@ -1,10 +1,10 @@
 
 ## ELEC 490 Frontend
 
-### [Recovery Tracker](https://elec49x.netlify.app/dashboard/app)
+### [BONK](https://elec49x.netlify.app/dashboard/app)
 ![alt text](https://github.com/shiyanboxer/ELEC-490-FE/blob/main/elec490.png)
 
-This repository stores the code for the frontend component of the recovery tracker. It's built with:
+This repository stores the code for the frontend component of the BONK. It's built with:
 - React
 - Javascript
 - Material UI

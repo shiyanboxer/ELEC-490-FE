@@ -22,7 +22,7 @@ export default function DocumentationPage() {
   return (
     <>
       <Helmet>
-        <title> Documentation | Recovery Tracker </title>
+        <title> Documentation | BONK </title>
       </Helmet>
 
       <Container>

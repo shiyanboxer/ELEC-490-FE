@@ -90,7 +90,7 @@ export default function Nav({ openNav, onCloseNav }) {
           /> */}
           <Box sx={{ textAlign: 'center' }}>
             <Typography gutterBottom variant="body1">
-              Learn more about how the Recovery Tracker works
+              Learn more about how the BONK works
             </Typography>
           </Box>
           <Button href="https://docs.google.com/document/d/1no3cW1rfu7zmcbKZR0VY-XDIb4JYl5ykk_-kTJci6EE/edit?usp=sharing" target="_blank" variant="contained">

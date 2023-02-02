@@ -149,7 +149,7 @@ export default function UserPage() {
   return (
     <>
       <Helmet>
-        <title> User | Recovery Tracker </title>
+        <title> User | BONK </title>
       </Helmet>
 
       <Container>
