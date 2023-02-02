@@ -59,7 +59,7 @@ export default function FormDialog() {
   return (
     <div>
       <Button fullWidth style={{marginBottom: "2%", marginTop: "3%"}} variant="contained" size="large" onClick={handleClickOpen}>
-        Heart Rate Variability Value
+        BONK
       </Button>
 
       <Dialog open={open} onClose={handleClose}>
