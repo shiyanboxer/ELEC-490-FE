@@ -77,15 +77,6 @@ export default function DashboardAppPage() {
   console.error('Recovery is either undefined or not an array.');
   }
 
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-  const today = new Date();
-  const date = today.getDate(); 
-  const month = today.getMonth();
-  const dateWithFullMonthName = monthNames[month];
-  // eslint-disable-next-line prefer-template
-  const fullDate = dateWithFullMonthName + ' ' + date;
-  
-  
   // eslint-disable-next-line dot-notation
   const recommendation = account['recommendation'];
   const recommendationData = [];
@@ -102,16 +93,14 @@ export default function DashboardAppPage() {
   } else {
     console.error('Recommendation is either undefined or not an array.');
   }
-  console.log('recommendationDate');
-  console.log(recommendationData);
-  console.log(recommendationDate);
 
+  const date = new Date();
+  const month = date.toLocaleString("default", {month: "short"});
+  const day = date.getDate();
+  
   if (hrvResponse) {
-    recoveryScoreDates.push(fullDate);
-    recoveryScoreData[0].data.push(hrv)
-    recoveryScoreData[1].data.push(recoveryScore)
-    // recommendationData.push(recoveryScore)
-    // recommendationDate.push(today)
+    recoveryScoreData[0].data.push({x: `${month} ${day}`, y: hrv});
+    recoveryScoreData[1].data.push({x: `${month} ${day}`, y: recoveryScore});
   }
 
   const RenderCardData = data.map(props => {
