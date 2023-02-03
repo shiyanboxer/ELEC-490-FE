@@ -75,11 +75,11 @@ export default function DashboardAppPage() {
   const fullDate = dateWithFullMonthName + ' ' + date;
 
   // TODO: get recommendation value from response, push to array, create array of Dates() with correct data and render in recommendation form
-  const recommendationData = ['Workout less', 'Workout more', 'Need to add better recs'];
+  const recommendationData = ['Workout less', 'Workout more', 'Workout more', 'Workout more', 'Workout less'];
   const recommendationDate = [
     // new Date(2022, 10, 10), new Date(2022, 10, 14), new Date(2022, 10, 28), 
     // new Date(2022, 11, 1), new Date(2022, 11, 7), new Date(2022, 11, 14), new Date(2022, 11, 28), 
-    new Date(2023, 0, 1), new Date(2023, 0, 20), new Date(2023, 0, 31)]
+    new Date(2023, 0, 1), new Date(2023, 0, 20), new Date(2023, 0, 31), new Date(2023, 1, 31), new Date(2023, 2, 31)]
 
   if (hrvResponse) {
     recoveryScoreDates.push(fullDate);
@@ -105,7 +105,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Recovery Tracker </title>
+        <title> BONK </title>
       </Helmet>
 
       <Container maxWidth="xl">
@@ -138,7 +138,7 @@ export default function DashboardAppPage() {
               title="Recommendations"
               list={recommendationDate.map((recommendation, index) => ({
                 // id: faker.datatype.uuid(),
-                title: ['recommendation'],
+                title: recommendationData[index],
                 image: `/assets/images/covers/cover_${index + 1}.jpg`,
                 postedAt: recommendation,
               }))}

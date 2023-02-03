@@ -23,7 +23,7 @@ export default function ProductsPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Products | Recovery Tracker </title>
+        <title> Dashboard: Products | BONK </title>
       </Helmet>
 
       <Container>

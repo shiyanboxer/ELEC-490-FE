@@ -22,7 +22,7 @@ export default function Page404() {
   return (
     <>
       <Helmet>
-        <title> 404 Page Not Found | Recovery Tracker </title>
+        <title> 404 Page Not Found | BONK </title>
       </Helmet>
 
       <Container>
