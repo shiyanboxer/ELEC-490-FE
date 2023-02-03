@@ -165,7 +165,7 @@ export default function DashboardAppPage() {
               chartLabels={['Anaerobic Capacity', 'VO2 Max', 'Threshold', 'Tempo', 'Endurance', 'Recover']}
               chartData={[
                 { name: 'Power', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'heart Rate', data: [20, 30, 40, 80, 20, 80] },
+                { name: 'Heart Rate', data: [20, 30, 40, 80, 20, 80] },
               ]}
               chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
