@@ -26,8 +26,6 @@ const CardData = () => {
     if (weeklyTrainingDB && Array.isArray(weeklyTrainingDB)) {
         mostRecentWeeklyTraining = weeklyTrainingDB[weeklyTrainingDB.length - 1];
         mostRecentHeartRate = heartRateDB[heartRateDB.length - 1];
-        console.log(mostRecentWeeklyTraining);
-        console.log(mostRecentHeartRate);
     } else {
         console.error('Weekly Training is either undefined or not an array.');
     }

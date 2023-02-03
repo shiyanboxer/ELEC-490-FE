@@ -11,8 +11,6 @@ const Account = () => {
       .then(response => response.json())
       .then(data => {
         setUserResponse(data)
-        console.log('IS THIS WORKING');
-        console.log(userResponse);
       })
       .catch(error => {
         console.log(error);

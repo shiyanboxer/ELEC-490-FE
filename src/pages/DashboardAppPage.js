@@ -31,41 +31,52 @@ export default function DashboardAppPage() {
   const data = CardData();
   const account = Account();
 
-  console.log('IN DASHBOARD');
-  console.log(account);
-
   const { hrvResponse } = useContext(ResponseContext);
+  // eslint-disable-next-line dot-notation
+  const recovery = account['recovery'];
+  let mostRecentRecovery;
+  let mostRecentHRV;
+  if (recovery && Array.isArray(recovery)) {
+      mostRecentRecovery = recovery[recovery.length - 1].recovery_score;
+      mostRecentHRV = recovery[recovery.length - 1].hrv;
+  } else {
+      console.error('Recovery is either undefined or not an array.');
+  }
 
   // eslint-disable-next-line dot-notation
-  const hrv = hrvResponse ? hrvResponse['hrv'] : 58;
+  const hrv = hrvResponse ? hrvResponse['hrv'] : mostRecentHRV;
   // eslint-disable-next-line dot-notation
-  const recoveryScore = hrvResponse ? hrvResponse['recovery_score'] : 67;
-  const recoveryScoreDates = [
-    'Nov 10',
-    'Nov 14',
-    'Nov 28',
-    'Dec 1',
-    'Dec 7',
-    'Dec 14',
-    'Dec 28',
-    'Jan 1',
-    'Jan 20',
-    'Jan 31',
-  ]
+  const recoveryScore = hrvResponse ? hrvResponse['recovery_score'] : mostRecentRecovery;
+
+  const recoveryScoreDates = []
   const recoveryScoreData = [
     {
       name: 'Heart Rate Variability',
       type: 'area',
       fill: 'gradient',
-      data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27],
+      data: [],
     },
     {
       name: 'Recovery Score',
       type: 'line',
       fill: 'solid',
-      data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36],
+      data: [],
     },
   ]
+
+  if (recovery && Array.isArray(recovery)) {
+    recovery.forEach(item => {
+    const date = new Date(item.date.$date);
+    const formattedDate = date.toLocaleDateString();
+    const month = date.toLocaleString("default", {month: "short"});
+    const day = date.getDate();
+    recoveryScoreData[0].data.push({x: `${month} ${day}`, y: item.hrv});
+    recoveryScoreData[1].data.push({x: `${month} ${day}`, y: item.recovery_score});
+  });
+} else {
+  console.error('Recovery is either undefined or not an array.');
+  }
+
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
   const today = new Date();
   const date = today.getDate(); 
@@ -73,13 +84,27 @@ export default function DashboardAppPage() {
   const dateWithFullMonthName = monthNames[month];
   // eslint-disable-next-line prefer-template
   const fullDate = dateWithFullMonthName + ' ' + date;
-
-  // TODO: get recommendation value from response, push to array, create array of Dates() with correct data and render in recommendation form
-  const recommendationData = ['Workout less', 'Workout more', 'Need to add better recs'];
-  const recommendationDate = [
-    // new Date(2022, 10, 10), new Date(2022, 10, 14), new Date(2022, 10, 28), 
-    // new Date(2022, 11, 1), new Date(2022, 11, 7), new Date(2022, 11, 14), new Date(2022, 11, 28), 
-    new Date(2023, 0, 1), new Date(2023, 0, 20), new Date(2023, 0, 31)]
+  
+  
+  // eslint-disable-next-line dot-notation
+  const recommendation = account['recommendation'];
+  const recommendationData = [];
+  const recommendationDate = [];
+  if (recommendation && Array.isArray(recommendation)) {
+    recommendation.forEach(item => {
+      const date = new Date(item.date.$date);
+      // const month = date.toLocaleString("default", {month: "short"});
+      // const day = date.getDate();
+      recommendationData.push(item.recommendation_txt);
+      // recommendationDate.push(`${month} ${day}`);
+      recommendationDate.push(date);
+  });
+  } else {
+    console.error('Recommendation is either undefined or not an array.');
+  }
+  console.log('recommendationDate');
+  console.log(recommendationData);
+  console.log(recommendationDate);
 
   if (hrvResponse) {
     recoveryScoreDates.push(fullDate);
@@ -138,7 +163,7 @@ export default function DashboardAppPage() {
               title="Recommendations"
               list={recommendationDate.map((recommendation, index) => ({
                 // id: faker.datatype.uuid(),
-                title: ['recommendation'],
+                title: recommendationData[index],
                 image: `/assets/images/covers/cover_${index + 1}.jpg`,
                 postedAt: recommendation,
               }))}
