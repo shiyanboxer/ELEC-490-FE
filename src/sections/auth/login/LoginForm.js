@@ -17,7 +17,7 @@ export default function LoginForm() {
     // navigate('/dashboard', { replace: true });
     // const url = 'http://127.0.0.1:5000';
     // const url = 'https://elec49x.herokuapp.com/';
-    const url = 'http://shiyanboxer.pythonanywhere.com/';
+    const url = 'https://shiyanboxer.pythonanywhere.com/';
     window.location.href = url;
   };
 
