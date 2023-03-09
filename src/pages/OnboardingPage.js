@@ -40,6 +40,10 @@ export default function OnboardingPage() {
     setAge(event.target.value);
   };
 
+  const handleOnClick = (event) => {
+    const url = 'https://shiyanboxer.pythonanywhere.com/';
+    window.location.href = url;
+  };
 
   const handleSubmit = async (event) => {    
     event.preventDefault();
@@ -58,7 +62,7 @@ export default function OnboardingPage() {
       // const url = 'http://127.0.0.1:5000';
       // const url = 'https://elec49x.herokuapp.com/';      
       // const url = 'https://shiyanboxer.pythonanywhere.com/';
-    // window.location.href = url;
+      // window.location.href = url;
     } catch (error) {
       console.error(error);
     }
@@ -127,7 +131,7 @@ export default function OnboardingPage() {
               <FormHelperText>Please enter your age</FormHelperText>
             </FormControl>
 
-            <Button type="submit" size="large" variant="contained">
+            <Button type="submit" size="large" variant="contained" onClick={handleOnClick}>
               Submit
             </Button>
           </form>
