@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import Page404 from './pages/Page404';
 import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
+import OnboardingPage from './pages/OnboardingPage';
 import DocumentationPage from './pages/DocumentationPage';
 import Account from './_mock/account';
 // ----------------------------------------------------------------------
@@ -27,6 +28,10 @@ export default function Router() {
         // { path: 'products', element: <ProductsPage /> },
         // { path: 'blog', element: <BlogPage /> },
       ],
+    },
+    {
+      path: 'onboarding',
+      element: <OnboardingPage/>
     },
     {
       path: 'login',
