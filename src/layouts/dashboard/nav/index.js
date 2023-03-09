@@ -53,7 +53,13 @@ export default function Nav({ openNav, onCloseNav }) {
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
-        <Logo />
+        <Logo          
+          sx={{
+            width: '60%',
+            height:'60%',
+            display: 'inline-flex',
+          }}
+        />
       </Box>
 
       <Box sx={{ mb: 5, mx: 2.5 }}>
