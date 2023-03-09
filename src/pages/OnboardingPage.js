@@ -48,7 +48,8 @@ export default function OnboardingPage() {
   const handleSubmit = async (event) => {    
     event.preventDefault();
     try {
-      const response = await fetch('127', {
+      const response = await fetch('https://shiyanboxer.pythonanywhere.com/onboarding', {
+        // const response = await fetch('http://127.0.0.1:5000/onboarding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -118,17 +119,16 @@ export default function OnboardingPage() {
             </FormControl>
 
             <FormControl variant="outlined" margin="normal" fullWidth required>
-              <FormLabel component="legend">Age</FormLabel>
               <TextField
                 id="age"
                 type="number"
+                label="Age"
                 variant="outlined"
                 value={age}
                 onChange={handleAgeChange}
                 InputProps={{ inputProps: { min: 0 } }}
                 required
               />
-              <FormHelperText>Please enter your age</FormHelperText>
             </FormControl>
 
             <Button type="submit" size="large" variant="contained" onClick={handleOnClick}>
