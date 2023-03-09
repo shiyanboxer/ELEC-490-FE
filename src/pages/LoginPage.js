@@ -46,7 +46,7 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | Recovery Tracking </title>
+        <title> Login | BONK </title>
       </Helmet>
 
       <StyledRoot>
@@ -70,7 +70,7 @@ export default function LoginPage() {
         <Container maxWidth="sm">
           <StyledContent>
             <Typography variant="h4" gutterBottom>
-              Sign in to Recovery Tracking
+              Sign in to BONK
             </Typography>
 
             <Typography variant="body2" sx={{ mb: 5 }}>
