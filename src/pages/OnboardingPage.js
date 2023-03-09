@@ -54,7 +54,7 @@ export default function OnboardingPage() {
       const data = await response.json();
       console.log(data);
       // If the form data was successfully submitted, navigate to the dashboard page
-      navigate('http://localhost:3000/dashboard/app');
+      navigate('/dashboard', { replace: true }); 
     } catch (error) {
       console.error(error);
     }
