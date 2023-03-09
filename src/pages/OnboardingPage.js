@@ -41,7 +41,7 @@ export default function OnboardingPage() {
   };
 
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {    
     event.preventDefault();
     try {
       const response = await fetch('127', {
@@ -54,7 +54,11 @@ export default function OnboardingPage() {
       const data = await response.json();
       console.log(data);
       // If the form data was successfully submitted, navigate to the dashboard page
-      navigate('/dashboard', { replace: true }); 
+      // navigate('dashboard', { replace: true });       
+      // const url = 'http://127.0.0.1:5000';
+      // const url = 'https://elec49x.herokuapp.com/';      
+      // const url = 'https://shiyanboxer.pythonanywhere.com/';
+    // window.location.href = url;
     } catch (error) {
       console.error(error);
     }
