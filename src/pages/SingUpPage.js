@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
@@ -42,6 +43,11 @@ const StyledContent = styled('div')(({ theme }) => ({
 
 export default function SignUpPage() {
   const mdUp = useResponsive('up', 'md');
+  const navigate = useNavigate();
+
+  const handleGetStartedClick = () => {
+    navigate('/login');
+  };
 
   return (
     <>
@@ -71,6 +77,11 @@ export default function SignUpPage() {
           <StyledContent>
             <Typography variant="h4" gutterBottom>
               Sign up to BONK
+            </Typography>
+
+            <Typography variant="body2" sx={{ mb: 5 }}>
+              Already have an account? {''}
+              <Link variant="subtitle2" onClick={handleGetStartedClick}>Login</Link>
             </Typography>
 
             <Stack direction="row" spacing={2}>
