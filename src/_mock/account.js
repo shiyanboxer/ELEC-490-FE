@@ -6,9 +6,9 @@ const Account = () => {
   const [userResponse, setUserResponse] = useState({});
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5001/user')
+    // fetch('http://127.0.0.1:5001/user')
     // fetch('https://elec49x.herokuapp.com/user')
-    // fetch('https://shiyanboxer.pythonanywhere.com/user')
+    fetch('https://shiyanboxer.pythonanywhere.com/user')
       .then(response => response.json())
       .then(data => {
         setUserResponse(data)
