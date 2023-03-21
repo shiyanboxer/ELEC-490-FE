@@ -15,7 +15,7 @@ export default function SignupForm() {
 
   const handleClick = () => {
     // navigate('/onboarding', { replace: true });
-    // const url = 'http://127.0.0.1:5000';
+    // const url = 'http://127.0.0.1:5001/onboarding';
     // const url = 'https://elec49x.herokuapp.com/';
     // const url = 'http://localhost:3000/onboarding';
     const url = 'https://elec49x.netlify.app/onboarding'

@@ -41,6 +41,7 @@ export default function OnboardingPage() {
   };
 
   const handleOnClick = (event) => {
+    // const url = 'http://127.0.0.1:5001/';
     const url = 'https://shiyanboxer.pythonanywhere.com/';
     window.location.href = url;
   };
@@ -130,6 +131,39 @@ export default function OnboardingPage() {
                 required
               />
             </FormControl>
+            <FormControl variant="outlined" margin="normal" fullWidth required>
+              <TextField
+                id="training"
+                type="number"
+                label="Training House / Week"
+                variant="outlined"
+                value={age}
+                onChange={handleAgeChange}
+                InputProps={{ inputProps: { min: 0 } }}
+                required
+              />
+            </FormControl>
+            <FormControl component="fieldset" margin="normal" fullWidth required>
+              <FormLabel component="legend">How would you describe your fitness</FormLabel>
+              <RadioGroup aria-label="fitness" name="fitness" value={gender} onChange={handleGenderChange}>
+                <FormControlLabel value="Novice" control={<Radio />} label="Novice" />
+                <FormControlLabel value="Amature" control={<Radio />} label="Amature" />
+                <FormControlLabel value="Pro" control={<Radio />} label="Pro" />
+              </RadioGroup>
+            </FormControl>
+            <FormControl variant="outlined" margin="normal" fullWidth required>
+              <TextField
+                id="events"
+                type="text"
+                label="What events are you training for"
+                variant="outlined"
+                value={age}
+                onChange={handleAgeChange}
+                InputProps={{ inputProps: { min: 0 } }}
+                required
+              />
+            </FormControl>
+
 
             <Button type="submit" size="large" variant="contained" onClick={handleOnClick}>
               Submit
