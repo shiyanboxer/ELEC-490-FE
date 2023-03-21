@@ -62,6 +62,12 @@ export default function DashboardAppPage() {
       fill: 'solid',
       data: [],
     },
+    {
+      name: 'Fitness',
+      type: 'line',
+      fill: 'solid',
+      data: [],
+    },
   ]
 
   if (recovery && Array.isArray(recovery)) {
@@ -72,6 +78,7 @@ export default function DashboardAppPage() {
     const day = date.getDate();
     recoveryScoreData[0].data.push({x: `${month} ${day}`, y: item.hrv});
     recoveryScoreData[1].data.push({x: `${month} ${day}`, y: item.recovery_score});
+    recoveryScoreData[2].data.push({x: `${month} ${day}`, y: item.fitness});
   });
 } else {
   console.error('Recovery is either undefined or not an array.');
