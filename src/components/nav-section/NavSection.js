@@ -13,8 +13,8 @@ NavSection.propTypes = {
 
 export default function NavSection({ data = [], ...other }) {
   return (
-    <Box {...other}>
-      <List disablePadding sx={{ p: 1 }}>
+    <Box mx={2.5} {...other}>
+      <List disablePadding sx={{ p: 0 }}>
         {data.map((item) => (
           <NavItem key={item.title} item={item} />
         ))}
@@ -35,14 +35,6 @@ function NavItem({ item }) {
   return (
     <StyledNavItem
       component={RouterLink}
-      to={path}
-      sx={{
-        '&.active': {
-          color: 'text.primary',
-          bgcolor: 'action.selected',
-          fontWeight: 'fontWeightBold',
-        },
-      }}
     >
       <StyledNavItemIcon>{icon && icon}</StyledNavItemIcon>
 

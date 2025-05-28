@@ -83,7 +83,7 @@ export default function LoginPage() {
               Don’t have an account? {''}
               <Link variant="subtitle2" onClick={handleGetStartedClick}>Get started</Link>
             </Typography>
-
+{/* 
             <Stack direction="row" spacing={2}>
               <Button fullWidth size="large" color="inherit" variant="outlined">
                 <Iconify icon="eva:google-fill" color="#DF3E30" width={22} height={22} />
@@ -102,7 +102,7 @@ export default function LoginPage() {
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 OR
               </Typography>
-            </Divider>
+            </Divider> */}
 
             <LoginForm />
           </StyledContent>

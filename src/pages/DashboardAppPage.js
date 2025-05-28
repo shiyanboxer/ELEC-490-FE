@@ -1,127 +1,141 @@
-import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { faker } from '@faker-js/faker';
-// @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
-// form hook - https://react-hook-form.com/get-started
-import { useForm } from "react-hook-form";
 // sections
 import {
-  AppTasks,
   AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
   AppWebsiteVisits,
-  AppTrafficBySite,
   AppWidgetSummary,
   AppCurrentSubject,
-  AppConversionRates,
-  CardData,
   FormDialog
 } from '../sections/@dashboard/app';
-import Account from '../_mock/account';
-import ResponseContext from '../components/response/ResponseContext'
-import UserContext from '../components/response/UserContext'
 
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
   const theme = useTheme();
-  const data = CardData();
-  const account = Account();
 
-  const { hrvResponse } = useContext(ResponseContext);
-  // eslint-disable-next-line dot-notation
-  const recovery = account['recovery'];
-  let mostRecentRecovery;
-  let mostRecentHRV;
-  if (recovery && Array.isArray(recovery)) {
-      mostRecentRecovery = recovery[recovery.length - 1].recovery_score;
-      mostRecentHRV = recovery[recovery.length - 1].hrv;
-  } else {
-      console.error('Recovery is either undefined or not an array.');
-  }
+  // Mock Card Data
+  const cardData = [
+    {
+      title: 'Recovery Score',
+      total: 67,
+      color: 'primary', // soft blue
+      icon: 'eva:shield-fill',
+    },
+    {
+      title: 'Average Heart Rate Variability (ms)',
+      total: 58,
+      color: 'info', // light blue
+      icon: 'eva:activity-fill', // ECG/heart rate icon
+    },
+    {
+      title: 'Weekly Training (Hours)',
+      total: 9,
+      color: 'warning', // light yellow
+      icon: 'eva:flash-fill',
+    },
+    {
+      title: 'Heart Rate (BPM)',
+      total: 81,
+      color: 'error', // light red
+      icon: 'eva:heart-fill',
+    },
+  ];
 
-  // eslint-disable-next-line dot-notation
-  const hrv = hrvResponse ? hrvResponse['hrv'] : mostRecentHRV;
-  // eslint-disable-next-line dot-notation
-  const recoveryScore = hrvResponse ? hrvResponse['recovery_score'] : mostRecentRecovery;
-
-  const recoveryScoreDates = []
+  // Mock Recovery Score Data
   const recoveryScoreData = [
     {
       name: 'Heart Rate Variability',
       type: 'area',
       fill: 'gradient',
-      data: [],
+      data: [
+        { x: 'Apr 1', y: 65 },
+        { x: 'Apr 2', y: 70 },
+        { x: 'Apr 3', y: 68 },
+        { x: 'Apr 4', y: 72 },
+        { x: 'Apr 5', y: 75 },
+        { x: 'Apr 6', y: 74 },
+        { x: 'Apr 7', y: 73 },
+      ],
     },
     {
       name: 'Recovery Score',
       type: 'line',
       fill: 'solid',
-      data: [],
+      data: [
+        { x: 'Apr 1', y: 80 },
+        { x: 'Apr 2', y: 82 },
+        { x: 'Apr 3', y: 78 },
+        { x: 'Apr 4', y: 85 },
+        { x: 'Apr 5', y: 88 },
+        { x: 'Apr 6', y: 90 },
+        { x: 'Apr 7', y: 87 },
+      ],
     },
     {
       name: 'Fitness',
       type: 'line',
       fill: 'solid',
-      data: [],
+      data: [
+        { x: 'Apr 1', y: 60 },
+        { x: 'Apr 2', y: 62 },
+        { x: 'Apr 3', y: 65 },
+        { x: 'Apr 4', y: 67 },
+        { x: 'Apr 5', y: 70 },
+        { x: 'Apr 6', y: 72 },
+        { x: 'Apr 7', y: 74 },
+      ],
     },
-  ]
+  ];
+  const recoveryScoreDates = [
+    'Apr 1',
+    'Apr 2',
+    'Apr 3',
+    'Apr 4',
+    'Apr 5',
+    'Apr 6',
+    'Apr 7',
+  ];
 
-  if (recovery && Array.isArray(recovery)) {
-    recovery.forEach(item => {
-    const date = new Date(item.date.$date);
-    const formattedDate = date.toLocaleDateString();
-    const month = date.toLocaleString("default", {month: "short"});
-    const day = date.getDate();
-    recoveryScoreData[0].data.push({x: `${month} ${day}`, y: item.hrv});
-    recoveryScoreData[1].data.push({x: `${month} ${day}`, y: item.recovery_score});
-    recoveryScoreData[2].data.push({x: `${month} ${day}`, y: item.fitness});
-  });
-} else {
-  console.error('Recovery is either undefined or not an array.');
-  }
+  // Mock Recommendations
+  const recommendationList = [
+    {
+      title: 'Take a rest day today to maximize recovery.',
+      image: '/assets/images/covers/cover_1.jpg',
+      postedAt: new Date('2024-04-07'),
+    },
+    {
+      title: 'Try a light stretching routine.',
+      image: '/assets/images/covers/cover_2.jpg',
+      postedAt: new Date('2024-04-06'),
+    },
+    {
+      title: 'Hydrate well and monitor your sleep.',
+      image: '/assets/images/covers/cover_3.jpg',
+      postedAt: new Date('2024-04-05'),
+    },
+    {
+      title: 'Great job on your workout yesterday!',
+      image: '/assets/images/covers/cover_4.jpg',
+      postedAt: new Date('2024-04-04'),
+    },
+  ];
 
-  // eslint-disable-next-line dot-notation
-  const recommendation = account['recommendation'];
-  const recommendationData = [];
-  const recommendationDate = [];
-  if (recommendation && Array.isArray(recommendation)) {
-    recommendation.forEach(item => {
-      const date = new Date(item.date.$date);
-      // const month = date.toLocaleString("default", {month: "short"});
-      // const day = date.getDate();
-      recommendationData.push(item.recommendation_txt);
-      // recommendationDate.push(`${month} ${day}`);
-      recommendationDate.push(date);
-  });
-  } else {
-    console.error('Recommendation is either undefined or not an array.');
-  }
-
-  const date = new Date();
-  const month = date.toLocaleString("default", {month: "short"});
-  const day = date.getDate();
-  
-  if (hrvResponse) {
-    recoveryScoreData[0].data.push({x: `${month} ${day}`, y: hrv});
-    recoveryScoreData[1].data.push({x: `${month} ${day}`, y: recoveryScore});
-  }
-
-  const RenderCardData = data.map(props => {
-    return (
-        <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary 
-                title={props.title}
-                total={props.total} 
-                color={props.color}
-                icon={props.icon}
-            />
-        </Grid>
-    )
-})
+  // Mock Workout Breakdown
+  const workoutLabels = [
+    'Anaerobic Capacity',
+    'VO2 Max',
+    'Threshold',
+    'Tempo',
+    'Endurance',
+    'Recover',
+  ];
+  const workoutChartData = [
+    { name: 'Power', data: [80, 50, 30, 40, 100, 20] },
+    { name: 'Heart Rate', data: [20, 30, 40, 80, 20, 80] },
+  ];
+  const workoutChartColors = [...Array(6)].map(() => theme.palette.text.secondary);
 
   return (
     <>
@@ -131,24 +145,32 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Welcome, {account.firstName}
+          Welcome, Shiyan
         </Typography>
         
         <Grid item xs={12} md={12} lg={12}>
           <Typography variant="subtitle1">
-                Enter your HRV value to view your updated recovery score and recommendations
-            </Typography>
+            Enter your HRV value to view your updated recovery score and recommendations
+          </Typography>
           <FormDialog/>
         </Grid>
 
         <Grid container spacing={3}>          
           {/* Render Card data */}
-          {RenderCardData}
+          {cardData.map((props, idx) => (
+            <Grid item xs={12} sm={6} md={3} key={idx}>
+              <AppWidgetSummary 
+                title={props.title}
+                total={props.total} 
+                color={props.color}
+                icon={props.icon}
+              />
+            </Grid>
+          ))}
 
           <Grid item xs={12} md={12} lg={12}>
             <AppWebsiteVisits
               title="Recovery Score"
-              // subheader="(+43%) than last year"
               chartLabels={recoveryScoreDates}
               chartData={recoveryScoreData}
             />
@@ -157,24 +179,16 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
               title="Recommendations"
-              list={recommendationDate.map((recommendation, index) => ({
-                // id: faker.datatype.uuid(),
-                title: recommendationData[index],
-                image: `/assets/images/covers/cover_${index + 1}.jpg`,
-                postedAt: recommendation,
-              }))}
+              list={recommendationList}
             />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
               title="Workout Breakdown"
-              chartLabels={['Anaerobic Capacity', 'VO2 Max', 'Threshold', 'Tempo', 'Endurance', 'Recover']}
-              chartData={[
-                { name: 'Power', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Heart Rate', data: [20, 30, 40, 80, 20, 80] },
-              ]}
-              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
+              chartLabels={workoutLabels}
+              chartData={workoutChartData}
+              chartColors={workoutChartColors}
             />
           </Grid>
         </Grid>
