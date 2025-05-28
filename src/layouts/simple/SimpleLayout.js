@@ -24,7 +24,7 @@ export default function SimpleLayout() {
   return (
     <>
       <StyledHeader>
-        <Logo />
+        <Logo sx={{ maxWidth: 120 }} />
       </StyledHeader>
 
       <Outlet />

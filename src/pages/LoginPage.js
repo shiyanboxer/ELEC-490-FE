@@ -61,6 +61,7 @@ export default function LoginPage() {
             position: 'fixed',
             top: { xs: 16, sm: 24, md: 40 },
             left: { xs: 16, sm: 24, md: 40 },
+            maxWidth: 120,
           }}
         />
 
@@ -80,7 +81,7 @@ export default function LoginPage() {
             </Typography>
 
             <Typography variant="body2" sx={{ mb: 5 }}>
-              Don’t have an account? {''}
+              Don't have an account? {''}
               <Link variant="subtitle2" onClick={handleGetStartedClick}>Get started</Link>
             </Typography>
 {/* 

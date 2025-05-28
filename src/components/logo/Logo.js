@@ -32,14 +32,21 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
       ref={ref}
       component="div"
       sx={{
-        width: '10%',
-        height:'10%',
         display: 'inline-flex',
+        alignItems: 'center',
         ...sx,
       }}
       {...other}
     >
-      <img src={logoImg} alt="Logo" width="100%" height="100%" />
+      <img
+        src={logoImg}
+        alt="Logo"
+        style={{
+          maxWidth: '100%',
+          height: 'auto',
+          display: 'block',
+        }}
+      />
     </Box>
   );
 

@@ -61,6 +61,7 @@ export default function SignUpPage() {
             position: 'fixed',
             top: { xs: 16, sm: 24, md: 40 },
             left: { xs: 16, sm: 24, md: 40 },
+            maxWidth: 120,
           }}
         />
 
